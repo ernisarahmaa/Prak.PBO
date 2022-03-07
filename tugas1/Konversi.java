@@ -18,9 +18,9 @@ public class Konversi {
     
     void afterKonversi(){
         System.out.println(" ");
-        System.out.println("Suhu Dalam Celcius    : " + c + "Â°C");
-        System.out.println("Dalam Fahreinheit     : " + CtoF() + "Â°F");
-        System.out.println("Dalam Reamur          : " + CtoR() + "Â°R");
+        System.out.println("Suhu Dalam Celcius    : " + c + "°C");
+        System.out.println("Dalam Fahreinheit     : " + CtoF() + "°F");
+        System.out.println("Dalam Reamur          : " + CtoR() + "°R");
         System.out.println("Dalam Kelvin          : " + CtoK() + "K");
         
         if(c <= 0){
