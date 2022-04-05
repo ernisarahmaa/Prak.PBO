@@ -1,15 +1,33 @@
 package divisi;
 
+import java.util.Scanner;
+
 public class web implements nilaiweb{
     //atribut
-    double tulis, coding, wawancara, hasil;
+    Scanner input = new Scanner (System.in);
+    String nama;
+    public double nik, tulis, coding, wawancara, hasil;
     
     //constructor
+
+    public web(String nama, double nik) {
+        this.nama = nama;
+        this.nik = nik;
+    }
+
     public web(double tulis, double coding, double wawancara, double hasil) {
         this.tulis = tulis;
         this.coding = coding;
         this.wawancara = wawancara;
         this.hasil = hasil;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
     public double getTulis() {
@@ -35,28 +53,55 @@ public class web implements nilaiweb{
     public void setWawancara(double wawancara) {
         this.wawancara = wawancara;
     }
+    
+    public void form(){
+        System.out.println(" ");
+        System.out.println("FORM PENDAFTARAN");
+        System.out.println(" ");
+        System.out.print("Input NIK  : ");
+        nik = input.nextInt();
+        System.out.print("Input Nama : ");
+        nama = input.next();
+        System.out.print("Input Nilai Tes Tulis     : ");
+        tulis = input.nextDouble();
+        System.out.print("Input Nilai Tes Coding    : ");
+        coding = input.nextDouble();
+        System.out.print("Input Nilai Tes Wawancara : ");
+        wawancara = input.nextDouble();
+    }
+    
+    void keterangan(){
+        System.out.println("Nilai Akhir : " + hasilakhir());     
+        if(hasil < 85){
+            System.out.println("KETERANGAN : GAGAL");
+            System.out.println("Mohon maaf kepada " + nama + " telah ditolak sebagai Web");
+        }else if(hasil >= 85){
+            System.out.println("KETERANGAN : BERHASIL");
+            System.out.println("Selamat kepada " + nama + " telah diterima sebagai Web");
+        }
+    }
+    
+    private double hasilakhir() {
+        return hasil = (tulis() + coding() + wawancara());
+    }
 
     @Override
     public double tulis() {
-        tulis = tulis*40/100;
-        return tulis;
+        return tulis = tulis*40/100;
     }
 
     @Override
     public double coding() {
-        coding = coding*35/100;
-        return coding;
+        return coding = coding*35/100;
     }
 
     @Override
     public double wawancara() {
-        wawancara = wawancara*25/100;
-        return wawancara;
-    }
+        return wawancara = wawancara*25/100;
+    } 
 
     @Override
     public void hasil() {
-        hasil = tulis + coding + wawancara;
+        keterangan();
     }
-    
 }
